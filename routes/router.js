@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getHomePage,
-  getAllBlogs,
-  getAllPhotos,
-} = require("../controllers/site");
+// static routes
+const { getHomePage, getAllPhotos } = require("../controllers/site");
 
+// notice routes
 const {
   getAllNotices,
   createNotice,
@@ -14,18 +12,32 @@ const {
   deleteNotice,
 } = require("../controllers/notice");
 
+// blog routes
+const {
+  getAllBlogs,
+  createBlog,
+  getBlog,
+  updateBlog,
+  deleteBlog,
+} = require("../controllers/blog");
+
 // homepage
 router.route("/").get(getHomePage);
 router.route(":id");
 
 // notice page
 router.route("/notices").get(getAllNotices).post(createNotice);
-router.route("/notices/:id").get(getNotice).patch(updateNotice).delete(deleteNotice);
+router
+  .route("/notices/:id")
+  .get(getNotice)
+  .patch(updateNotice)
+  .delete(deleteNotice);
 
 // blogs page
-router.route("/blogs").get(getAllBlogs);
-router.route(":id");
+router.route("/blogs").get(getAllBlogs).post(createBlog);
+router.route("/blogs/:id").get(getBlog).patch(updateBlog).delete(deleteBlog);
 
+// photos page
 router.route("/photos").get(getAllPhotos);
 router.route(":id");
 

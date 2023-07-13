@@ -11,20 +11,24 @@
 
                 <div class="row notice_lists mt-5">
                     <div class="col-md-6 mx-auto">
-                        <div class="card">
-                            <div class="card-body">
-                                <% for (let notice of notices) {%>
-                                    <p> <%= notice.createdAt %></p>
+                        <% for (let notice of notices) {%>
+
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p>
+                                        <%= notice.createdAt %>
+                                    </p>
                                     <h4>
                                         <%= notice.title %>
                                     </h4>
                                     <p class="lead">
                                         <%= notice.body %>
                                     </p>
-                                    <%} %>
 
+
+                                </div>
                             </div>
-                        </div>
+                            <%} %>
                     </div>
                 </div>
             </div>
