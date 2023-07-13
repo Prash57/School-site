@@ -1,0 +1,33 @@
+<%- include('header') -%>
+    <%- include('navbar') -%>
+
+        <section class="notices mt-3 mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <h2>Notices and Events</h2>
+                    </div>
+                </div>
+
+                <div class="row notice_lists mt-5">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <% for (let notice of notices) {%>
+                                    <p> <%= notice.createdAt %></p>
+                                    <h4>
+                                        <%= notice.title %>
+                                    </h4>
+                                    <p class="lead">
+                                        <%= notice.body %>
+                                    </p>
+                                    <%} %>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%- include('footer') -%>
