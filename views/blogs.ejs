@@ -7,7 +7,7 @@
                         <h3>Blogs</h3>
                     </div>
                 </div>
-
+                <a class="nav-link" href="/api/v1/ca/blogs/createblog">Create Blog</a>
                 <div class="row mt-5">
                     <% for (let blog of blogs) {%>
                         <div class="col-md-3">
@@ -20,7 +20,7 @@
                                     <p class="card-text">
                                         <%= blog.body %>
                                     </p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="/api/v1/ca/blogs/<%= blog._id %>" class="btn btn-primary">Read More...</a>
                                 </div>
                             </div>
                         </div>

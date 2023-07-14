@@ -4,7 +4,7 @@ const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find({});
     // render ejs template and pass the data
-    res.render('blogs', {blogs})
+    res.render("blogs", { blogs });
     // res.json({ blogs });
   } catch (error) {
     res.json({ msg: error });
@@ -14,7 +14,9 @@ const getAllBlogs = async (req, res) => {
 const createBlog = async (req, res) => {
   try {
     const blog = await Blog.create(req.body);
-    res.json({ blog });
+    // render ejs template for blog ceation
+    res.render("create-blog", { blog });
+    // res.json({ blog });
   } catch (error) {
     res.json({ msg: error });
   }
@@ -27,7 +29,9 @@ const getBlog = async (req, res) => {
     if (!blog) {
       return res.json({ msg: `No blog with id: ${blogID}` });
     }
-    res.json({ blog });
+    // render ejs for single blog
+    res.render("single-blog", { blog });
+    // res.json({ blog });
   } catch (error) {
     res.json({ msg: error });
   }
@@ -56,7 +60,9 @@ const deleteBlog = async (req, res) => {
     if (!blog) {
       return res.json({ msg: `No blog with id: ${blogID}` });
     }
-    res.json({ blog });
+    // redircet to diff page
+    res.redirect("blogs");
+    // res.json({ blog });
   } catch (error) {
     res.json({ msg: error });
   }

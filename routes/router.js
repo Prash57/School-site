@@ -34,8 +34,10 @@ router
   .delete(deleteNotice);
 
 // blogs page
-router.route("/blogs").get(getAllBlogs).post(createBlog);
-router.route("/blogs/:id").get(getBlog).patch(updateBlog).delete(deleteBlog);
+router.route("/blogs").get(getAllBlogs);
+router.route("/blogs/createblog").post(createBlog);
+router.route("/blogs/:id").get(getBlog).patch(updateBlog);
+router.route("/deleteblogs/:id").delete(deleteBlog);
 
 // photos page
 router.route("/photos").get(getAllPhotos);

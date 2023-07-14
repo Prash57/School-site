@@ -1,0 +1,9 @@
+<%- include('header') -%>
+    <%- include('navbar') -%>
+        <h1>Create a new Blog</h1>
+        <form action="/blogs/createblog" method="POST">
+            <input type="text" name="title" placeholder="Title">
+            <textarea name="body" placeholder="body"></textarea>
+            <button type="submit">Create Blog</button>
+        </form>
+        <%- include('footer') -%>
